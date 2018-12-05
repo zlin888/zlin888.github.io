@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Juicy on Liam&#39;s BLOG-博客</title>
+    <link>/tags/juicy/</link>
+    <description>Recent content in Juicy on Liam&#39;s BLOG-博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 05 Dec 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/juicy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Algorithm Review Memorization</title>
+      <link>/post/2018/12/05/juicy-code/</link>
+      <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/12/05/juicy-code/</guid>
+      <description>Algorithm Review Memorization Heap  Build Heap &amp;mdash;- O(n)  Disjoint Set  linked-list representation  make &amp;mdash;- O(1) find &amp;mdash;- O(1) union amortized time &amp;mdash;- O(n) or O(m + nlgn) with the weighted union heuristic, where m is for the makes and finds  rooted-tree representation  union = two finds and one link make &amp;mdash;- O(1) link &amp;mdash;- O(1) find  rank heuristic &amp;mdash;- O(lgn) path compression &amp;mdash;- shit both &amp;mdash;- $O(m\alpha(n))$    Hash Collision solution: 1.</description>
+    </item>
+    
+  </channel>
+</rss>
