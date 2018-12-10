@@ -69,7 +69,7 @@ Read/Write Comments!
 <div id="disqus_thread"></div>
 <script>
 
-function raise_disqus() {
+function raise_disqus(button) {
     
     
     if (window.location.hostname == "localhost")
@@ -80,6 +80,7 @@ function raise_disqus() {
     disqus_shortname = "liamlin"; 
     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    button.style.visibility = "hidden";
 }
 
 </script>
