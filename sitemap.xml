@@ -1,59 +1,72 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<?xml-stylesheet type="text/xsl" href="http://localhost:1313/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>/post/2018/12/22/%E6%B8%B8%E9%BA%A6%E7%90%86%E6%B5%A9%E5%BE%84%E4%B8%80%E4%BA%8C%E6%AE%B5/</loc>
+    <loc>http://localhost:1313/post/2018-12-22-macleehose-trail/</loc>
     <lastmod>2018-12-22T22:16:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>/post/2018/12/12/system-security-revision-cryptography/</loc>
+    <loc>http://localhost:1313/post/2018-12-12-system-security-revision-crcryptograpics/</loc>
     <lastmod>2018-12-12T01:40:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2018-12-22T22:16:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>/post/</loc>
+    <loc>http://localhost:1313/post/</loc>
     <lastmod>2018-12-22T22:16:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/courses/</loc>
+    <loc>http://localhost:1313/categories/courses/</loc>
     <lastmod>2018-12-12T01:40:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/hongkong/</loc>
+    <loc>http://localhost:1313/tags/hongkong/</loc>
     <lastmod>2018-12-22T22:16:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/security/</loc>
+    <loc>http://localhost:1313/tags/security/</loc>
     <lastmod>2018-12-12T01:40:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/travel/</loc>
+    <loc>http://localhost:1313/categories/travel/</loc>
     <lastmod>2018-12-22T22:16:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   

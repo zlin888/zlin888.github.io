@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>System Security Revision —— Cryptography - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Liam Lin" /><meta name="description" content="Content  What is Cryptography? Flow Classical Ciphers  What is Cryptography? In ancient Greek, kryptós means hidden or secret and, of course, graphy means to write. Generally, we consider cryptography as a practical study for secure communication, that is for preventing the third parties or the public from reading the private messages[1].
+Flow 1 2  plaintext--(key)--&amp;gt;encryption--&amp;gt;ciphertext--&amp;gt;(Communication)-- --&amp;gt;ciphertext--(key)--&amp;gt;decryption--&amp;gt;plaintext   CLassical Ciphers [1] https://en.wikipedia.org/wiki/Cryptography--- title: &amp;ldquo;System Security Revision —— Cryptography&amp;rdquo; author: Liam Lin date: 2018-12-12T01:40:21&#43;08:00 categories: - courses tags:" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.51 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/2018-12-12-system-security-revision-crcryptograpics/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="System Security Revision —— Cryptography" />
+<meta property="og:description" content="Content  What is Cryptography? Flow Classical Ciphers  What is Cryptography? In ancient Greek, kryptós means hidden or secret and, of course, graphy means to write. Generally, we consider cryptography as a practical study for secure communication, that is for preventing the third parties or the public from reading the private messages[1].
+Flow 1 2  plaintext--(key)--&gt;encryption--&gt;ciphertext--&gt;(Communication)-- --&gt;ciphertext--(key)--&gt;decryption--&gt;plaintext   CLassical Ciphers [1] https://en.wikipedia.org/wiki/Cryptography--- title: &ldquo;System Security Revision —— Cryptography&rdquo; author: Liam Lin date: 2018-12-12T01:40:21&#43;08:00 categories: - courses tags:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/2018-12-12-system-security-revision-crcryptograpics/" /><meta property="article:published_time" content="2018-12-12T01:40:21&#43;08:00"/>
+<meta property="article:modified_time" content="2018-12-12T01:40:21&#43;08:00"/>
+
+<meta itemprop="name" content="System Security Revision —— Cryptography">
+<meta itemprop="description" content="Content  What is Cryptography? Flow Classical Ciphers  What is Cryptography? In ancient Greek, kryptós means hidden or secret and, of course, graphy means to write. Generally, we consider cryptography as a practical study for secure communication, that is for preventing the third parties or the public from reading the private messages[1].
+Flow 1 2  plaintext--(key)--&gt;encryption--&gt;ciphertext--&gt;(Communication)-- --&gt;ciphertext--(key)--&gt;decryption--&gt;plaintext   CLassical Ciphers [1] https://en.wikipedia.org/wiki/Cryptography--- title: &ldquo;System Security Revision —— Cryptography&rdquo; author: Liam Lin date: 2018-12-12T01:40:21&#43;08:00 categories: - courses tags:">
+
+
+<meta itemprop="datePublished" content="2018-12-12T01:40:21&#43;08:00" />
+<meta itemprop="dateModified" content="2018-12-12T01:40:21&#43;08:00" />
+<meta itemprop="wordCount" content="354">
+
+
+
+<meta itemprop="keywords" content="security," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="System Security Revision —— Cryptography"/>
+<meta name="twitter:description" content="Content  What is Cryptography? Flow Classical Ciphers  What is Cryptography? In ancient Greek, kryptós means hidden or secret and, of course, graphy means to write. Generally, we consider cryptography as a practical study for secure communication, that is for preventing the third parties or the public from reading the private messages[1].
+Flow 1 2  plaintext--(key)--&gt;encryption--&gt;ciphertext--&gt;(Communication)-- --&gt;ciphertext--(key)--&gt;decryption--&gt;plaintext   CLassical Ciphers [1] https://en.wikipedia.org/wiki/Cryptography--- title: &ldquo;System Security Revision —— Cryptography&rdquo; author: Liam Lin date: 2018-12-12T01:40:21&#43;08:00 categories: - courses tags:"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">System Security Revision —— Cryptography</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-12-12 </span>
+        <div class="post-category">
+            <a href="/categories/courses/"> courses </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#content">Content</a></li>
+<li><a href="#what-is-cryptography">What is Cryptography?</a></li>
+<li><a href="#flow">Flow</a></li>
+<li><a href="#classical-ciphers">CLassical Ciphers</a></li>
+</ul></li>
+<li><a href="#security">- security</a></li>
+<li><a href="#system-security-revision-cryptography">System Security Revision —— Cryptography</a>
+<ul>
+<li><a href="#content-1">Content</a></li>
+<li><a href="#what-is-cryptography-1">What is Cryptography?</a></li>
+<li><a href="#flow-1">Flow</a></li>
+<li><a href="#classical-cipher">CLassical Cipher</a></li>
+</ul></li>
+<li><a href="#cat-users-documents-markdowns-system-security-revision-cryptography-md-2018-12-12-system-security-revision-crcryptograpics-md">cat /Users/-/Documents/Markdowns/System\ Security\ Revision\ ——\ Cryptography.md &gt;&gt; 2018-12-12-system-security-revision-crcryptograpics.md</a></li>
+<li><a href="#system-security-revision-cryptography-1">System Security Revision —— Cryptography</a>
+<ul>
+<li><a href="#content-2">Content</a></li>
+<li><a href="#what-is-cryptography-2">What is Cryptography?</a></li>
+<li><a href="#basic-flow">Basic Flow</a></li>
+<li><a href="#classical-cipher-1">Classical Cipher</a></li>
+<li><a href="#stagenography">Stagenography</a></li>
+<li><a href="#ciphers-for-a-sequence-of-bits">Ciphers for a sequence of bits</a>
+<ul>
+<li><a href="#rc4">RC4</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h3 id="content">Content</h3>
+
+<ol>
+<li>What is Cryptography?</li>
+<li>Flow</li>
+<li>Classical Ciphers</li>
+</ol>
+
+<h3 id="what-is-cryptography">What is Cryptography?</h3>
+
+<p>In ancient Greek, <em>kryptós</em> means <em>hidden</em> or <em>secret</em> and, of course, <em>graphy</em> means to write. Generally, we consider cryptography as a practical study for secure communication, that is for preventing the third parties or the public from reading the private messages[1].</p>
+
+<h3 id="flow">Flow</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">plaintext--(key)--&gt;encryption--&gt;ciphertext--&gt;(Communication)--
+--&gt;ciphertext--(key)--&gt;decryption--&gt;plaintext</pre></td></tr></table>
+</div>
+</div>
+<h3 id="classical-ciphers">CLassical Ciphers</h3>
+
+<p>[1] <a href="https://en.wikipedia.org/wiki/Cryptography---">https://en.wikipedia.org/wiki/Cryptography---</a>
+title: &ldquo;System Security Revision —— Cryptography&rdquo;
+author: Liam Lin
+date: 2018-12-12T01:40:21+08:00
+categories:
+  - courses
+tags:</p>
+
+<h2 id="security">- security</h2>
+
+<h2 id="system-security-revision-cryptography">System Security Revision —— Cryptography</h2>
+
+<h3 id="content-1">Content</h3>
+
+<ol>
+<li>What is Cryptography?</li>
+<li>Flow</li>
+<li>Classical Ciphers</li>
+</ol>
+
+<h3 id="what-is-cryptography-1">What is Cryptography?</h3>
+
+<p>In ancient Greek, <em>kryptós</em> means <em>hidden</em> or <em>secret</em> and, of course, <em>graphy</em> means to write. Generally, we consider cryptography as a practical study for secure communication, that is for preventing the third parties or the public from reading the private messages[1].</p>
+
+<h3 id="flow-1">Flow</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">plaintext--(key)--&gt;encryption--&gt;ciphertext--&gt;(Communication)--
+--&gt;ciphertext--(key)--&gt;decryption--&gt;plaintext</pre></td></tr></table>
+</div>
+</div>
+<h3 id="classical-cipher">CLassical Cipher</h3>
+
+<ul>
+<li>Substitution Ciphers
+
+<ul>
+<li>Caesar</li>
+<li>Monoaphabetic</li>
+<li>Polyaphabetic</li>
+<li>Playfair</li>
+<li>Autokey</li>
+</ul></li>
+<li>Transposition Ciphers
+
+<ul>
+<li>Rail Fence</li>
+<li>Row Transposition</li>
+</ul></li>
+</ul>
+
+<p>[1] <a href="https://en.wikipedia.org/wiki/Cryptography">https://en.wikipedia.org/wiki/Cryptography</a></p>
+
+<hr />
+
+<p>title: &ldquo;System Security Revision —— Cryptography&rdquo;
+author: Liam Lin
+date: 2018-12-12T01:40:21+08:00
+categories:
+  - courses
+tags:
+  - security</p>
+
+<h2 id="cat-users-documents-markdowns-system-security-revision-cryptography-md-2018-12-12-system-security-revision-crcryptograpics-md">cat /Users/-/Documents/Markdowns/System\ Security\ Revision\ ——\ Cryptography.md &gt;&gt; 2018-12-12-system-security-revision-crcryptograpics.md</h2>
+
+<h2 id="system-security-revision-cryptography-1">System Security Revision —— Cryptography</h2>
+
+<h3 id="content-2">Content</h3>
+
+<ol>
+<li>What is Cryptography?</li>
+<li>Basic Flow</li>
+<li>Classical Ciphers</li>
+<li>Steganography</li>
+<li>Ciphers for a sequence of bits</li>
+</ol>
+
+<h3 id="what-is-cryptography-2">What is Cryptography?</h3>
+
+<p>In ancient Greek, <em>kryptós</em> means <em>hidden</em> or <em>secret</em> and, of course, <em>graphy</em> means to write. Generally, we consider cryptography as a practical study for secure communication, that is for preventing the third parties or the public from reading the private messages[1].</p>
+
+<h3 id="basic-flow">Basic Flow</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">plaintext--(key)--&gt;encryption--&gt;ciphertext--&gt;(Communication)--
+--&gt;ciphertext--(key)--&gt;decryption--&gt;plaintext</pre></td></tr></table>
+</div>
+</div>
+<h3 id="classical-cipher-1">Classical Cipher</h3>
+
+<ul>
+<li>Substitution Ciphers
+
+<ul>
+<li>Caesar</li>
+<li>Monoaphabetic</li>
+<li>Polyaphabetic</li>
+<li>Playfair</li>
+<li>Autokey</li>
+</ul></li>
+<li>Transposition Ciphers
+
+<ul>
+<li>Rail Fence</li>
+<li>Row Transposition</li>
+</ul></li>
+</ul>
+
+<h3 id="stagenography">Stagenography</h3>
+
+<p>Stagenography aims to hide the existence of the information.</p>
+
+<p>For example, we can use the invisible ink to write, hide a torrent link in a JPEG file (you know~) or write an artical where the information can be combined with every begining letters of each lines.</p>
+
+<p>The disvantage of stagenoagraphy is that the overhead is huge even for a small piece of information.</p>
+
+<h3 id="ciphers-for-a-sequence-of-bits">Ciphers for a sequence of bits</h3>
+
+<p>Unlike the classical ciphers, modern ciphers deal with information in bits level.</p>
+
+<ul>
+<li>Stream Ciphers</li>
+<li>Block Ciphers</li>
+</ul>
+
+<h4 id="rc4">RC4</h4>
+
+<p>[1] <a href="https://en.wikipedia.org/wiki/Cryptography">https://en.wikipedia.org/wiki/Cryptography</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Liam Lin</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">2018-12-12</span>
+  </p>
+  
+  
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/security/">security</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2018-12-22-macleehose-trail/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">游麦理浩径一二段</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">olOwOlo</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

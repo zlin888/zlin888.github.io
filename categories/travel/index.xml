@@ -1,27 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>travel on Liam&#39;s BLOG</title>
-    <link>/categories/travel/</link>
-    <description>Recent content in travel on Liam&#39;s BLOG</description>
+    <title>travel on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/categories/travel/</link>
+    <description>Recent content in travel on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Sat, 22 Dec 2018 22:16:14 +0800</lastBuildDate>
     
-	<atom:link href="/categories/travel/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://localhost:1313/categories/travel/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>游麦理浩径一二段</title>
-      <link>/post/2018/12/22/%E6%B8%B8%E9%BA%A6%E7%90%86%E6%B5%A9%E5%BE%84%E4%B8%80%E4%BA%8C%E6%AE%B5/</link>
+      <link>http://localhost:1313/post/2018-12-22-macleehose-trail/</link>
       <pubDate>Sat, 22 Dec 2018 22:16:14 +0800</pubDate>
       
-      <guid>/post/2018/12/22/%E6%B8%B8%E9%BA%A6%E7%90%86%E6%B5%A9%E5%BE%84%E4%B8%80%E4%BA%8C%E6%AE%B5/</guid>
-      <description>游麦理浩径一二段 ​ 麦理浩径被誉为亚洲十大徒步路线之一，我一直不以为然，直到今天。
-​ 从上窑出发，踏上麦理浩径的第一段，很快便走到了万宜水库的西坝。两边是蓝色的湖，天空也是蓝色的，远远望去的是绿油油山，悠哉的云朵在山上映下了淡淡的影子，路上黄色的减速带和慢驶两字给人一种身处日本的感觉。坝的两边还有许多大石头，沿着石头往下爬便能到湖边。近看，湖水又由蓝色变成了绿色，清澈见底。洗了一把脸，沁凉透心。继续前行，沿途看见一些香港野牛趴在树荫下乘凉；仔细一听，好像还有一些猴子的叫声。翻过一座山，便绕到了东坝，东坝的景观与西坝大同小异，不过东坝的左边是湖，右边便是海了。
-​ 稍作休息，从东坝继续出发便是麦理浩径的第二段了。这段的路全是山路，楼梯与土坡轮番上阵，一会是径直的上坡，一会是让人刹不住脚的下坡。我们一路，绕山而行，终于绕到了另外一侧，开始听到“呼呼沙沙”的海浪声，浪茄湾映入眼帘。从高处看，两座山一直延绵到海的远处，浪茄湾便夹在两山中间，白色的沙滩，或绿或蓝的海水，波光粼粼，煞是好看。海滩上只有游客寥寥数人，见一六七十余岁的老头，一问竟是从天津来的背包客，一人一包一杆，实在让人赞叹不已呀。沙是又细又滑的，掺在鞋子里也丝毫不觉得硌脚。水质也是好极了的，除了海浪卷起的细沙，看不到一丝的杂质。若是带了毛巾，我必要脱下鞋子，挽起衫裤，到海里玩一番。
-​ 再次启程便开始与这山坡较劲。走了约半小时，见一亭于山顶，我们便进去坐下休息。这里景致更好了，海风拂过整个山丘，鸟儿却在空中慢得出奇。山的另一边是又是一个海滩，上面除了沙子和来去的浪涛便什么也没有了。这时候能做的，就是闭上双眼，感受这份大自然的静谧。既而，云朵儿们加快了步伐，我们自然也不能落下，越过两座山，绕回到湖的另一边。这边的湖光山色的浑然一体的，湖中有山，山中有湖。云层变厚了，不过湖和天的颜色却又更像了，太阳也更猛了，直叫人睁不开眼睛，却又给人以朦胧之美。
-​ 从西湾亭往西走半小时，便是西贡公路了，也是回去的路。天开始黑了，麦理浩径之旅也随之拉下了帷幕。</description>
+      <guid>http://localhost:1313/post/2018-12-22-macleehose-trail/</guid>
+      <description>​ 麦理浩径被誉为亚洲十大徒步路线之一，我一直不以为然，直到今天。 ​ 从上窑出发，踏上麦理浩径的第一段，很快便走到了万宜水库的西坝。两边是蓝色的</description>
     </item>
     
   </channel>
