@@ -11,11 +11,20 @@
     
     
     <item>
-      <title>Code</title>
-      <link>/categories/code/</link>
-      <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
+      <title>courses</title>
+      <link>/categories/courses/</link>
+      <pubDate>Wed, 12 Dec 2018 01:40:21 +0800</pubDate>
       
-      <guid>/categories/code/</guid>
+      <guid>/categories/courses/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>travel</title>
+      <link>/categories/travel/</link>
+      <pubDate>Sat, 22 Dec 2018 22:16:14 +0800</pubDate>
+      
+      <guid>/categories/travel/</guid>
       <description></description>
     </item>
     
