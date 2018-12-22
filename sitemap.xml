@@ -3,8 +3,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://localhost:1313/post/2018-12-22-macleehose-trail/</loc>
-    <lastmod>2018-12-22T22:16:14+08:00</lastmod>
+    <loc>http://localhost:1313/post/%E6%B8%B8%E9%BA%A6%E7%90%86%E6%B5%A9%E5%BE%84%E7%AC%AC%E4%B8%80%E4%BA%8C%E6%AE%B5/</loc>
+    <lastmod>2018-12-22T22:53:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -24,14 +24,14 @@
   
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2018-12-22T22:16:14+08:00</lastmod>
+    <lastmod>2018-12-22T22:53:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://localhost:1313/post/</loc>
-    <lastmod>2018-12-22T22:16:14+08:00</lastmod>
+    <lastmod>2018-12-22T22:53:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -51,7 +51,7 @@
   
   <url>
     <loc>http://localhost:1313/tags/hongkong/</loc>
-    <lastmod>2018-12-22T22:16:14+08:00</lastmod>
+    <lastmod>2018-12-22T22:53:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -65,7 +65,7 @@
   
   <url>
     <loc>http://localhost:1313/categories/travel/</loc>
-    <lastmod>2018-12-22T22:16:14+08:00</lastmod>
+    <lastmod>2018-12-22T22:53:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
