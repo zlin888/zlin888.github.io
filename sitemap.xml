@@ -3,6 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://liamlin.top/about-me/</loc>
+    <lastmod>2019-06-29T15:10:19-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://liamlin.top/</loc>
+    <lastmod>2019-06-29T15:10:19-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://liamlin.top/posts/</loc>
     <lastmod>2019-06-29T14:08:56-04:00</lastmod>
     <priority>0</priority>
@@ -11,12 +22,6 @@
   <url>
     <loc>http://liamlin.top/posts/the-stupid-way-to-330/</loc>
     <lastmod>2019-06-29T14:08:56-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://liamlin.top/</loc>
-    <lastmod>2019-06-29T14:08:56-04:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
