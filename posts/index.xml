@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Zhitao Lin&#39;s Site</title>
-    <link>http://liamlin.top/</link>
-    <description>Recent content on Zhitao Lin&#39;s Site</description>
+    <title>Posts on Zhitao Lin&#39;s Site</title>
+    <link>http://liamlin.top/posts/</link>
+    <description>Recent content in Posts on Zhitao Lin&#39;s Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 29 Jun 2019 14:08:56 -0400</lastBuildDate>
     
-	<atom:link href="http://liamlin.top/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://liamlin.top/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
