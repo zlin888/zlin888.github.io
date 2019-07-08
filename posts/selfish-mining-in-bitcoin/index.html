@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.55.6" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Zhitao Lin" />
+  <meta property="og:url" content="http://liamlin.top/posts/selfish-mining-in-bitcoin/" />
+  <link rel="canonical" href="http://liamlin.top/posts/selfish-mining-in-bitcoin/" /><script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "http:\/\/liamlin.top\/"
+      },
+      "articleSection" : "posts",
+      "name" : "Selfish Mining in Bitcoin",
+      "headline" : "Selfish Mining in Bitcoin",
+      "description" : "Assignment for COMP3334, Computer System Security, PolyU\nPart one -- Introduction to Bitcoin part two -- Selfish Mining Strategy part three -- Implementation of Selfish Mining part four -- Selfish Mining’s Revenue part five -- Solution part six -- My View and Future Works part seven -- Reference  Introduction to Bitcoin Bitcoin is a peer-to-peer electronic cash system that aims to support the completely non- reversible transactions, due to its cryptographic proof based system, and allow two willing parties to transact directly with each other without the need for a trusted third party.",
+      "inLanguage" : "en-US",
+      "author" : "Zhitao Lin",
+      "creator" : "Zhitao Lin",
+      "publisher": "Zhitao Lin",
+      "accountablePerson" : "Zhitao Lin",
+      "copyrightHolder" : "Zhitao Lin",
+      "copyrightYear" : "2018",
+      "datePublished": "2018-10-28 16:01:34 -0400 EDT",
+      "dateModified" : "2018-10-28 16:01:34 -0400 EDT",
+      "url" : "http:\/\/liamlin.top\/posts\/selfish-mining-in-bitcoin\/",
+      "keywords" : [  ]
+  }
+</script>
+<title>Selfish Mining in Bitcoin - Zhitao Lin&#39;s Site</title>
+  <meta property="og:title" content="Selfish Mining in Bitcoin - Zhitao Lin&#39;s Site" />
+  <meta property="og:type" content="article" />
+  <meta name="description" content="Assignment for COMP3334, Computer System Security, PolyU
+Part one -- Introduction to Bitcoin part two -- Selfish Mining Strategy part three -- Implementation of Selfish Mining part four -- Selfish Mining’s Revenue part five -- Solution part six -- My View and Future Works part seven -- Reference  Introduction to Bitcoin Bitcoin is a peer-to-peer electronic cash system that aims to support the completely non- reversible transactions, due to its cryptographic proof based system, and allow two willing parties to transact directly with each other without the need for a trusted third party." />
+
+  <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/tomorrow.min.css" />
+  <link rel="stylesheet" href="/css/index.css">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Zhitao Lin&#39;s Site">
+  
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker" rel="stylesheet">
+  
+  <script>
+    
+
+    (function (undefined) { }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+  </script>
+
+  
+</head>
+
+<body>
+  <article class="post " id="article">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="site-header">
+          
+<header>
+  <div class="signatures site-title">
+    <a href="/">Zhitao Lin</a>
+  </div>
+</header>
+<div class="row end-xs">
+  
+  
+</div>
+<div class="header-line"></div>
+
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">Selfish Mining in Bitcoin</h1>
+          <div class="row">
+            <div class="col-xs-6">
+              <time class="post-date" datetime="2018-10-28 16:01:34 EDT">
+                28, Oct, 2018
+              </time>
+            </div>
+            <div class="col-xs-6">
+              <div class="post-author">
+                <a target="_blank" href="./">@Zhitao Lin</a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div class="post-content markdown-body">
+          
+
+<p><em>Assignment for COMP3334, Computer System Security, PolyU</em></p>
+
+<pre><code>Part one   -- Introduction to Bitcoin
+part two   -- Selfish Mining Strategy
+part three -- Implementation of Selfish Mining
+part four  -- Selfish Mining’s Revenue
+part five  -- Solution
+part six   -- My View and Future Works
+part seven -- Reference
+</code></pre>
+
+<h2 id="introduction-to-bitcoin">Introduction to Bitcoin</h2>
+
+<p>Bitcoin is a peer-to-peer electronic cash system that aims to support the completely non- reversible transactions, due to its cryptographic proof based system, and allow two willing parties to transact directly with each other without the need for a trusted third party.</p>
+
+<p>Bitcoin uses the digital signature to construct the framework of coins that introduces strong control of coins ownership and applies some proof-of-work methods to prevent the double-spending problem.</p>
+
+<p>The incentive for the creator of a new block can encourage more miner to mine, facilitate the transaction processes, and provide a way to initially distribute coins into circulation.[1]</p>
+
+<p>Bitcoin is getting more and more popular because of its fancy property, such as decentralization, non-reversibility, anonymity, and security. However, it is not totally free from attack. For example, in the 51% attack, if some colluding miners (or attackers) possess over 50% mining power, the bitcoin system will suffer from double-spending problem against. Fortunately, A majority attack has never been successfully executed on the Bitcoin network, but it has been demonstrated to work on some small altcoins.[2]</p>
+
+<h2 id="selfish-mining-strategy">Selfish Mining Strategy</h2>
+
+<p>In 2013, [3] discussed a selfish strategy for bitcoin mining that enables pools of colluding miners that adopt it to earn revenues in excess of their mining power.</p>
+
+<p>As I mentioned before, in the bitcoin system, miners will collect a reward after they successfully solve a crypto puzzle and record a set of transactions. Due to the difficulty and randomness of the puzzle solving, miners may form a mining pool to decrease the variance of their income. In the protocol, a miner always can earn revenue depends on their mining power, no matter it is in a pool or not. Therefore, in term of the whole bitcoin system, pool formation do no harm.
+The bitcoin incentive system is built on the honesty of a majority of the miners who are willing to follow the bitcoin protocol. Selfish mining strategy can help small miner(pool) obtain more revenue than they should have with regard to their mining power. In order to achieve the maximum profits, miners may apply this strategy.</p>
+
+<h2 id="implementation-of-selfish-mining">Implementation of Selfish Mining</h2>
+
+<p>Suppose there are two group of miners; that is the honest group who strictly sticks to the bitcoin protocol and the selfish group who applies the selfish mining strategy. Generally, the selfish group may selectively reveal their mined blocks to nullify the honest group’s work.</p>
+
+<p>When the selfish group finds a block, the will be in the advantageous position, instead of publishing the block and broadcast, they keep it secret. Under this circumstance, the selfish mining strategy can be described intuitively by these two scenarios.</p>
+
+<p>The first scenario: the honest group mine a block in the public branch. The selfish group should immediately publish its block and its private branch. This yields a toss-up where either branch may win. The honest group may choose either branch to mine.</p>
+
+<ol>
+<li><p>If the honest group choose to mine after the selfish block, the selfish group earn an award for one block.</p></li>
+
+<li><p>If the honest group choose to mine after their branch and mine a new block ahead of the selfish block, the honest group enjoy the revenue of two blocks. In this case, the selfish group earns nothing.</p></li>
+
+<li><p>If the selfish group mine a new block after its block, they earn the award of two blocks, while the honest group earns nothing.</p></li>
+</ol>
+
+<p>The second scenario: the selfish group second new block, and of course they are not going to reveal it but keep it in the private branch. It will create a comfortable lead position for the selfish group because they can always publish their branch that longer than the public branch before the honest group is getting too close. It will nullify the effort of the honest group and selfish group enjoys all these revenues.</p>
+
+<h2 id="selfish-mining-s-revenue">Selfish Mining’s Revenue</h2>
+
+<p>The authors detailed into 7 different events (please refer to [3]) that may happen while applying the selfish mining strategy. And calculate the selfish group revenue is:
+<img src="/static/selfish-minging-in-bitcoin/r-pool.png" alt="R-POOL" />
+Where $\alpha$ is the mining power of the selfish pool (group), $(1 − \alpha)$ is of the others pool (honest group), $\gamma$ donate the ratio of honest miners that choose to mine on the pool’s (selfish group’s) block, and the expression valid only for $$0 &lt; 𝛼 &lt; \frac{1}{2}$$
+When the pool’s revenue given in Equation 8 is larger than $/alpha$, the pool will earn more than its relative size by using the Selfish-Mine strategy.</p>
+
+<p>$\gamma$ and $\alpha$ play an important role in the revenue of the selfish group. The authors summarize:
+<img src="/static/selfish-minging-in-bitcoin/threshold.png" alt="threashold" /></p>
+
+<p>Threshold $\alpha$ means that if $\alpha &gt; threshold$, Equation 8 is larger than $\alpha$ for the given $\gamma$. For example, if $\gamma$ = 1, we have
+$$(Equation8) - \alpha = \frac{\alpha^2(\alpha-1)^2}{\alpha^3-2\alpha^2-\alpha+1}&gt;0,where\;0&lt;\alpha&lt;2$$
+Which means the pool will earn more than its relative size.</p>
+
+<p>Authors believe that the current bitcoin protocol has the $\gamma → 1$; that is all honest miners choose to mine on the selfish group’s block. It is because a clever selfish group will perform a Sybil attack on the honest miner once the public group finds a new block when there is an unrevealed block in the private branch. So selfish group’s branch always wins.</p>
+
+<h2 id="solution">Solution</h2>
+
+<p>To protect the bitcoin system, the authors suggest when a miner encounters two competing branches with the same length, it should propagate all of them, and choose which one to mine on
+uniformly at random. If they do so, $\gamma$ will be 1 and the threshold α will increase from 0 to $\frac{1}{4}$, which may reduce the threat posed by the selfish miners because it is difficult for group or pool to have $\frac{1}{4}$ mining power.</p>
+
+<h2 id="my-view-and-future-works">My View and Future Works</h2>
+
+<p>Theoretically, as what the paper has covered, I believe selfish mining is a good strategy for those who want to maximize their revenue. However, practically, I think this is a bad idea for both big mining poll or a small one.</p>
+
+<p>First, [3] is based on the situation where the honest miner is irrational and not going to applied any measure to prevent it. However, in reality, selfish mining can be detected[4]. And for some huge mining pool, they have to catalog their IP addresses to the community, so that they can be incorporated into the white-list strategy used by miners and prioritize their block when created. The selfish pool, using the anonymous IP addresses, may be deprioritized, and, therefore, have more latency and orphan rate. For the small pool or even individual, their selfish strategy will not affect the bitcoin system structure and may even expose them to the risk where they earn less money due to the unpredictable network delay.</p>
+
+<p>Second, the Sybil Attack is not practical and can be prevented easily with CAPTCHAS or Proof- of-Word strategy[5]. A successful Sybil Attack is costly. So the $\gamma$ is often much smaller than 1.
+Recently, [6] invents the Optimal Selfish Mining Strategies that can always earn more than honest mining strategy while considering the delay of block propagation. And it optimizes the selfish mining strategy, in term of any parametrization of the model[3]. Also, it shows that the growth of the selfish miners may be destructive to the bitcoin system and demonstrates how any attacker for which selfish mining is profitable can execute double spending attacks bearing no costs. [7] also talks about the combination of the network-level eclipse attacks and the selfish mining strategy. It proves that selfish mining is not optimal.</p>
+
+<p>However, as I mentioned, some more practical measures may be adopted by the community who always want the bitcoin system is health to prevent selfish mining, which makes this strategy not scalable and profitable. I believe further work should pay more attention to the practical strategy, like how to apply selfish mining on a massive scale or how to react to the measures of the community. For the community or the good people, should come up with more detection method of selfish mining and prevent the formation of a huge pool that applies the selfish strategy.</p>
+
+<h2 id="reference">Reference</h2>
+
+<p>[1] Nakamoto, Satoshi. &ldquo;Bitcoin: A peer-to-peer electronic cash system.&rdquo; (2008).<br />
+[2] <a href="https://en.wikipedia.org/wiki/Bitcoin">https://en.wikipedia.org/wiki/Bitcoin</a> <br />
+[3] Eyal, I., &amp; Sirer, E. G. Majority is not enough: Bitcoin mining is vulnerable. Communications of the ACM, 61(7), 95-102
+[4] <a href="https://bitcoin-class.org/projects/selfish.pdf">https://bitcoin-class.org/projects/selfish.pdf</a> <br />
+[5] <a href="https://loki.network/preventing-sybil-attacks-runes-pow-and-captchas/">https://loki.network/preventing-sybil-attacks-runes-pow-and-captchas/</a> <br />
+[6] Sapirshtein A, Sompolinsky Y, Zohar A. Optimal selfish mining strategies in bitcoin. Financial Cryptography and Data Security 2016 Feb 22 (pp. 515-532). Springer, Berlin, Heidelberg.<br />
+[7] Nayak, Kartik, et al. &ldquo;Stubborn mining: Generalizing selfish mining and combining with an eclipse attack.&rdquo; Security and Privacy (EuroS&amp;P), 2016 IEEE European Symposium on. IEEE, 2016</p>
+
+        </div>
+        
+        
+        
+        <div class="site-footer">
+  
+  <div class="site-footer-item">
+    <a href="./about-me" target="_blank">About Me</a>
+  </div>
+  
+  <div class="site-footer-item">
+    <a href="https://github.com/liamlin88" target="_blank">Github</a>
+  </div>
+  
+  <div class="site-footer-item">
+  </div>
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$']],
+        displayMath: [['$$','$$']],
+        processEscapes: true,
+        processEnvironments: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        TeX: { equationNumbers: { autoNumber: "AMS" },
+             extensions: ["AMSmath.js", "AMSsymbols.js"] }
+      }
+    });
+    </script>
+
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$']],
+        displayMath: [['$$','$$']],
+        processEscapes: true,
+        processEnvironments: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        TeX: { equationNumbers: { autoNumber: "AMS" },
+             extensions: ["AMSmath.js", "AMSsymbols.js"] }
+      }
+    });
+    </script>
+
+  <script src="/js/highlight.pack.js"></script>
+<script src="https://unpkg.com/quicklink@0.1.1/dist/quicklink.umd.js"></script>
+
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  var posts = document.getElementById('posts-list');
+  posts && quicklink({
+    el: posts,
+    priority: true,
+  });
+</script>
+
+
+
+  
+
+</body>
+
+</html>
