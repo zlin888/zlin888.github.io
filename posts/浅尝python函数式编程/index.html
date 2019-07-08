@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.55.6" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Zhitao Lin" />
+  <meta property="og:url" content="http://liamlin.top/posts/%E6%B5%85%E5%B0%9Dpython%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" />
+  <link rel="canonical" href="http://liamlin.top/posts/%E6%B5%85%E5%B0%9Dpython%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" /><script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "http:\/\/liamlin.top\/"
+      },
+      "articleSection" : "posts",
+      "name" : "浅尝Python函数式编程",
+      "headline" : "浅尝Python函数式编程",
+      "description" : "Part one \x26ndash; 函数式编程的特性\npart two \x26ndash; Map\npart three \x26ndash; Reduce\npart four \x26ndash; Filter\npart five \x26ndash; Currying\n函数式编程的特性 函数是一等公民，也就是说，你能应用到数据（对象）的事情，同样也能应用到函数上。比如说，把一个函数作为参数传递到另外一个函数。 使用递归进行主要的控制结构，在一些函数式编程语言（当然不包括Python）中，甚至没有“for”或者“while”循环这个概念。 列表（List）常常会作为数据处理的核心。 函数常常没有副作用，即对于某一个函数F，同样的输出往往会得到同样的结果，这是和数学上的函数等价的。因此，程序员需要充分考虑全局变量的必要性，能弃则弃。 函数式编程更关心程序要做什么，而不是怎么去做。 在函数式编程中，Higher order Function 承担着一个重要的角色。\n通过上述的这些特性，函数式编程的往往能加快开发的效率，减少开发周期和提供更少BUG的、更具有可读性的代码。\n支持函数式编程的语言不胜其数，比较流行的有Lisp、Scheme、Haskell、Erlang、Racket和Scala等等。当然，虽然Python不是一门函数式编程的语言，但也提供了许多支持函数式编程的特性。\nPython函数式编程主由map, reduce, filter 和 apply四个函数以及Lambda表达式组成。别少看了这四个函数和一个表达式。单纯地使用它们，就可以实现所有的Python控制流操作（if, elif, else, assert, try, except, for, break, continue, while, def) 。虽说纯粹地使用它们来编写Python的程序十分奇怪（也不应该这样做），但是通过对这四个函数和一个算子的学习，我们不仅能通过它们的使用来缩短程序，增加可读性，还能学会函数式编程的基本思想，为以后其他语言的学习打下基础。\nLambda表达式 Lambda 表达式的语法十分简单：\nlambda argvs: expression\nLambda表达式可以创造出一个匿名的函数对象，当然我们可以用变量来储存这个函数对象。\n我们现在用Lambda表达式来创造函数add，这个函数接受两个参数x, y，返回x \x2b y的结果。\nadd = lambda x, y: x \x2b y` add(3,4) # 结果为 7  上述程序等价于：",
+      "inLanguage" : "en-US",
+      "author" : "Zhitao Lin",
+      "creator" : "Zhitao Lin",
+      "publisher": "Zhitao Lin",
+      "accountablePerson" : "Zhitao Lin",
+      "copyrightHolder" : "Zhitao Lin",
+      "copyrightYear" : "2019",
+      "datePublished": "2019-07-08 14:14:05 -0400 EDT",
+      "dateModified" : "2019-07-08 14:14:05 -0400 EDT",
+      "url" : "http:\/\/liamlin.top\/posts\/%E6%B5%85%E5%B0%9Dpython%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B\/",
+      "keywords" : [  ]
+  }
+</script>
+<title>浅尝Python函数式编程 - Zhitao Lin&#39;s Site</title>
+  <meta property="og:title" content="浅尝Python函数式编程 - Zhitao Lin&#39;s Site" />
+  <meta property="og:type" content="article" />
+  <meta name="description" content="Part one &ndash; 函数式编程的特性
+part two &ndash; Map
+part three &ndash; Reduce
+part four &ndash; Filter
+part five &ndash; Currying
+函数式编程的特性 函数是一等公民，也就是说，你能应用到数据（对象）的事情，同样也能应用到函数上。比如说，把一个函数作为参数传递到另外一个函数。 使用递归进行主要的控制结构，在一些函数式编程语言（当然不包括Python）中，甚至没有“for”或者“while”循环这个概念。 列表（List）常常会作为数据处理的核心。 函数常常没有副作用，即对于某一个函数F，同样的输出往往会得到同样的结果，这是和数学上的函数等价的。因此，程序员需要充分考虑全局变量的必要性，能弃则弃。 函数式编程更关心程序要做什么，而不是怎么去做。 在函数式编程中，Higher order Function 承担着一个重要的角色。
+通过上述的这些特性，函数式编程的往往能加快开发的效率，减少开发周期和提供更少BUG的、更具有可读性的代码。
+支持函数式编程的语言不胜其数，比较流行的有Lisp、Scheme、Haskell、Erlang、Racket和Scala等等。当然，虽然Python不是一门函数式编程的语言，但也提供了许多支持函数式编程的特性。
+Python函数式编程主由map, reduce, filter 和 apply四个函数以及Lambda表达式组成。别少看了这四个函数和一个表达式。单纯地使用它们，就可以实现所有的Python控制流操作（if, elif, else, assert, try, except, for, break, continue, while, def) 。虽说纯粹地使用它们来编写Python的程序十分奇怪（也不应该这样做），但是通过对这四个函数和一个算子的学习，我们不仅能通过它们的使用来缩短程序，增加可读性，还能学会函数式编程的基本思想，为以后其他语言的学习打下基础。
+Lambda表达式 Lambda 表达式的语法十分简单：
+lambda argvs: expression
+Lambda表达式可以创造出一个匿名的函数对象，当然我们可以用变量来储存这个函数对象。
+我们现在用Lambda表达式来创造函数add，这个函数接受两个参数x, y，返回x &#43; y的结果。
+add = lambda x, y: x &#43; y` add(3,4) # 结果为 7  上述程序等价于：" />
+
+  <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/tomorrow.min.css" />
+  <link rel="stylesheet" href="/css/index.css">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Zhitao Lin&#39;s Site">
+  
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker" rel="stylesheet">
+  
+  <script>
+    
+
+    (function (undefined) { }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+  </script>
+
+  
+</head>
+
+<body>
+  <article class="post " id="article">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="site-header">
+          
+<header>
+  <div class="signatures site-title">
+    <a href="/">Zhitao Lin</a>
+  </div>
+</header>
+<div class="row end-xs">
+  
+  
+</div>
+<div class="header-line"></div>
+
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">浅尝Python函数式编程</h1>
+          <div class="row">
+            <div class="col-xs-6">
+              <time class="post-date" datetime="2019-07-08 14:14:05 EDT">
+                08, Jul, 2019
+              </time>
+            </div>
+            <div class="col-xs-6">
+              <div class="post-author">
+                <a target="_blank" href="./">@Zhitao Lin</a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div class="post-content markdown-body">
+          
+
+<p>Part one &ndash; 函数式编程的特性<br />
+part two &ndash; Map<br />
+part three &ndash; Reduce<br />
+part four &ndash; Filter<br />
+part five &ndash; Currying</p>
+
+<h2 id="函数式编程的特性">函数式编程的特性</h2>
+
+<p>函数是一等公民，也就是说，你能应用到数据（对象）的事情，同样也能应用到函数上。比如说，把一个函数作为参数传递到另外一个函数。
+使用递归进行主要的控制结构，在一些函数式编程语言（当然不包括Python）中，甚至没有“for”或者“while”循环这个概念。
+列表（List）常常会作为数据处理的核心。
+函数常常没有副作用，即对于某一个函数F，同样的输出往往会得到同样的结果，这是和数学上的函数等价的。因此，程序员需要充分考虑全局变量的必要性，能弃则弃。
+函数式编程更关心程序要做什么，而不是怎么去做。
+在函数式编程中，Higher order Function 承担着一个重要的角色。</p>
+
+<p>通过上述的这些特性，函数式编程的往往能加快开发的效率，减少开发周期和提供更少BUG的、更具有可读性的代码。</p>
+
+<p>支持函数式编程的语言不胜其数，比较流行的有Lisp、Scheme、Haskell、Erlang、Racket和Scala等等。当然，虽然Python不是一门函数式编程的语言，但也提供了许多支持函数式编程的特性。</p>
+
+<p>Python函数式编程主由map, reduce, filter 和 apply四个函数以及Lambda表达式组成。别少看了这四个函数和一个表达式。单纯地使用它们，就可以实现所有的Python控制流操作（if, elif, else, assert, try, except, for, break, continue, while, def) 。虽说纯粹地使用它们来编写Python的程序十分奇怪（也不应该这样做），但是通过对这四个函数和一个算子的学习，我们不仅能通过它们的使用来缩短程序，增加可读性，还能学会函数式编程的基本思想，为以后其他语言的学习打下基础。</p>
+
+<h2 id="lambda表达式">Lambda表达式</h2>
+
+<p>Lambda 表达式的语法十分简单：</p>
+
+<p><code>lambda argvs: expression</code></p>
+
+<p>Lambda表达式可以创造出一个匿名的函数对象，当然我们可以用变量来储存这个函数对象。</p>
+
+<p>我们现在用Lambda表达式来创造函数add，这个函数接受两个参数x, y，返回x + y的结果。</p>
+
+<pre><code>add = lambda x, y: x + y`
+add(3,4) # 结果为 7
+</code></pre>
+
+<p>上述程序等价于：</p>
+
+<pre><code>def add(x, y):
+    return x + y
+add(3,4)
+</code></pre>
+
+<h2 id="map">Map</h2>
+
+<p>Map函数的调用形式如下：<br />
+<code>map(func, iterable)</code></p>
+
+<p>Map需要两个必填的参数，一是函数名，二是一个可迭代的对象（Dict，Tuple或者List等）。Map的原理很简单，就是把可迭代对象里面的每一个元素都作为参数传入func中，并且依次地把执行func的结果组合成一个新的map对象，并返回（注意：在Python 2.x版本中， Map函数直接返回一个list对象）。</p>
+
+<p>举一个 chestnut：</p>
+
+<p>首先定义函数square，输入一个数字，返回该数字的平方：</p>
+
+<pre><code>def square(x):
+    return x * x
+</code></pre>
+
+<p>定义List:</p>
+
+<pre><code>l = [1, 2, 3, 4]
+</code></pre>
+
+<p>把square函数和l列表输入作为参数传入map函数，再把结果转换为List：</p>
+
+<pre><code>list(map(square, l))
+</code></pre>
+
+<p>最后得到如下结果：</p>
+
+<pre><code>[1, 4, 9, 16]
+</code></pre>
+
+<p>可以看到，没有用到以往经常使用的loop结构，我们便可以对list中的每一个数字都执行平方函数。当然，利用Lambda表达式，我们可以让该过程变得更加精简：</p>
+
+<pre><code>list(map(lambda x: x * x, l))
+</code></pre>
+
+<p>得到同样的结果。</p>
+
+<h2 id="reduce">Reduce</h2>
+
+<p>Reduce函数的调用形式如下：</p>
+
+<pre><code>reduce(func, iterable[, initializer])
+</code></pre>
+
+<p>同map函数相似reduce函数的第一个参数也是函数名，第二个参数为可迭代对象，第三个是初始数值为可选参数，当初始数值被空置了的时候，可迭代对象的第一个元素会被认为为初始数值。reduce函数利用输入的函数，对可迭代对象进行从左到右的累积运算，是一个很常见的操作。</p>
+
+<p>使用Python 3.x的朋友要注意：reduce函数以及被从全局命名空间里移除了。在使用之前我们需要加上这一条：</p>
+
+<pre><code>from functools import reduce
+</code></pre>
+
+<p>还是举一个例子来解释一下吧，这次我们把一段List进行累加：</p>
+
+<pre><code>reduce(lambda x, y: x + y, [1, 2, 3, 4], 10))
+</code></pre>
+
+<p>结果为
+<code>10 + 1 + 2 + 3 + 4 = 20</code></p>
+
+<h2 id="filter">Filter</h2>
+
+<p>Filter函数的调用形式如下：</p>
+
+<pre><code>filter(func, iterable)
+</code></pre>
+
+<p>filter()接受两个参数，第一个参数是一个函数名，第二个参数是一个可迭代的对象。</p>
+
+<p>filter函数的功能与map相似，也是把可迭代对象里面的每一个元素都作为参数传入func中，并且依执行，如果func的返回值通常是一个bool值，如果bool值为true，该迭代对象里的元素会被保留。最后基于所有被保留的元素创建一个filter对象，并返回（注意：在Python 2.x版本中， Filter函数直接返回一个list对象）。</p>
+
+<p>这次我们用filter函数来把列表中的奇数过滤掉：</p>
+
+<pre><code>list(filter(lambda x: x % 2 == 0, [1,2,3,4,5,6,7,8]))
+</code></pre>
+
+<p>结果：</p>
+
+<pre><code>[2, 4, 6, 8]
+</code></pre>
+
+<h2 id="currying">Currying</h2>
+
+<p>柯里化是一个可以让程序员提高函数的抽象度的其中一个手段。先从下面的几个例子来说明柯里化的用处吧！读者可以根据例子的要求先动手实验一下，这样能够加深印象，也便于理解。</p>
+
+<p>首先我们想检验一个列表中的所有元素是否全为False，利用lambda表达式和三元表达式我们可以这样写：</p>
+
+<pre><code>check_all_true = lambda l: True if len(l) == 0 else (
+    False if l[0] == False else check_all_true(l[1:]))
+</code></pre>
+
+<p>这个函数比较复杂，没有使用loop控制结构来实现列表的遍历，而是使用了递归的方法，读者应当细细品味。</p>
+
+<p>如果我们想要检查一个列表中的元素是否全都大于30呢？仿照上面的例子，我们可以这样写：</p>
+
+<pre><code>check_all_bigger_than_30 = lambda l: True if len(l) == 0 else (
+    False if l[0] &lt;= 30 else check_all_bigger_than_30(l[1:]))
+</code></pre>
+
+<p>聪明的读者可能会发现，这两个函数是有其共同之处的。为了让日后的使用更加方便，我们可以尝试把这两个函数的公共模式提取出来，也就是抽象！那么，我们定义一个check函数。（为了让读者明白lambda表达式与python函数在功能上是等价，我们用def 来定义check函数。）</p>
+
+<pre><code>def check(filter_func, l):
+    if reduce(lambda x, y: filter_func(x) + filter_func(y), l, 0) == len(l):
+        return True
+    else:
+        return False
+</code></pre>
+
+<p>注意：在check函数中，我们没有使用递归了，而是利用reduce来遍历整个数组，而且实现方式也比较巧妙。我们利用了如下这一属性，如果filter_func应用到所有列表中的所有元素的结果都为True，那么reduce累加的结果应当等同于列表的长度。</p>
+
+<p>好，那么我们现在可以利用check来检验一个列表中的所有元素是否全为False。
+is_true = lambda x: x == True</p>
+
+<pre><code>check(isTrue, [1,0,1,0])
+</code></pre>
+
+<p>我们也可以这样实现check_all_bigger_than_30：</p>
+
+<pre><code>is_bigger_than_30 = lambda x: x &gt; 30
+
+check(is_bigger_than_30, a_list)
+</code></pre>
+
+<p>但是，我们似乎不能重新定义check_all_true和check_all_bigger_than_30。每一次想要实现check_all_true的功能，我们都要调用check(isTrue, a_list)。</p>
+
+<p>那么，我们如何进一步提出这个公共模式，提高抽象程度呢？这里柯里化就派上用场了！我们重新定义check（为了不重名，我们把这个新的函数名为check_p）。</p>
+
+<pre><code>def check_p(f):
+    def _check(l):
+        if len(l) == 0:
+            return True
+        elif not f(l[0]):
+            return False
+        else:
+            return _check(l[1:])
+    return _check    
+</code></pre>
+
+<p>注意：这次我们使用递归来遍历列表。更值得注意的是，check函数接受一个函数作为参数，返回一个函数。而这个返回的函数，接受一个列表，返回一个Boolean值。</p>
+
+<p>有了Check_p函数，我们可以更加方便地重新定义check_all_true和check_all_bigger_than_30这两个函数：</p>
+
+<pre><code>check_all_true = check_p(is_true)
+check_all_bigger_than_30 = check_p(is_bigger_than_30)
+</code></pre>
+
+<p>我们就可以这样使用这两个函数：</p>
+
+<pre><code>check_all_true([1,1,1,0])
+check_all_bigger_than_30([32,12,88])
+</code></pre>
+
+<p>由此一来，我们就利用柯里化完成了对某一个公共模式的抽象。check_p函数接受一个函数f。这个函数f应当也接受一个参数，并对该参数进行判断从而返回一个Boolean值。然后，check_p返回一个函数，该返回函数接受一个列表作为参数，并利用函数f检查列表中的各个元素，返回检查结果。</p>
+
+<p>在check_all_true的例子中，我们把isTrue作为函数f传入check_p，然后把check_p的返回函数赋值于check_all_true中，从而实现我们的目的。</p>
+
+        </div>
+        
+        
+        
+        <div class="site-footer">
+  
+  <div class="site-footer-item">
+    <a href="./about-me" target="_blank">About Me</a>
+  </div>
+  
+  <div class="site-footer-item">
+    <a href="https://github.com/liamlin88" target="_blank">Github</a>
+  </div>
+  
+  <div class="site-footer-item">
+  </div>
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  <script src="/js/highlight.pack.js"></script>
+<script src="https://unpkg.com/quicklink@0.1.1/dist/quicklink.umd.js"></script>
+
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  var posts = document.getElementById('posts-list');
+  posts && quicklink({
+    el: posts,
+    priority: true,
+  });
+</script>
+
+  
+
+</body>
+
+</html>
