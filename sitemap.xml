@@ -3,25 +3,20 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://liamlin.top/posts/</loc>
-    <lastmod>2019-07-08T14:14:05-04:00</lastmod>
-    <priority>0</priority>
+    <loc>http://liamlin.top/about-me/</loc>
+    <lastmod>2019-06-29T15:10:19-04:00</lastmod>
   </url>
   
   <url>
     <loc>http://liamlin.top/</loc>
-    <lastmod>2019-07-08T14:14:05-04:00</lastmod>
+    <lastmod>2019-06-29T15:10:19-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://liamlin.top/posts/%E6%B5%85%E5%B0%9Dpython%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</loc>
-    <lastmod>2019-07-08T14:14:05-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://liamlin.top/about-me/</loc>
-    <lastmod>2019-06-29T15:10:19-04:00</lastmod>
+    <loc>http://liamlin.top/posts/</loc>
+    <lastmod>2019-06-29T14:08:56-04:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -32,6 +27,11 @@
   <url>
     <loc>http://liamlin.top/posts/selfish-mining-in-bitcoin/</loc>
     <lastmod>2018-10-28T16:01:34-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://liamlin.top/posts/%E6%B5%85%E5%B0%9Dpython%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</loc>
+    <lastmod>2018-08-21T14:14:05-04:00</lastmod>
   </url>
   
   <url>
