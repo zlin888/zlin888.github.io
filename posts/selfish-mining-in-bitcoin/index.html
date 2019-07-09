@@ -143,12 +143,12 @@ The bitcoin incentive system is built on the honesty of a majority of the miners
 <h2 id="selfish-mining-s-revenue">Selfish Mining’s Revenue</h2>
 
 <p>The authors detailed into 7 different events (please refer to [3]) that may happen while applying the selfish mining strategy. And calculate the selfish group revenue is:
-<img src="/static/selfish-minging-in-bitcoin/r-pool.png" alt="R-POOL" />
+<img src="/img/selfish-minging-in-bitcoin/r-pool.png" alt="R-POOL" />
 Where $\alpha$ is the mining power of the selfish pool (group), $(1 − \alpha)$ is of the others pool (honest group), $\gamma$ donate the ratio of honest miners that choose to mine on the pool’s (selfish group’s) block, and the expression valid only for $$0 &lt; 𝛼 &lt; \frac{1}{2}$$
 When the pool’s revenue given in Equation 8 is larger than $/alpha$, the pool will earn more than its relative size by using the Selfish-Mine strategy.</p>
 
 <p>$\gamma$ and $\alpha$ play an important role in the revenue of the selfish group. The authors summarize:
-<img src="/static/selfish-minging-in-bitcoin/threshold.png" alt="threashold" /></p>
+<img src="/img/selfish-minging-in-bitcoin/threshold.png" alt="threashold" /></p>
 
 <p>Threshold $\alpha$ means that if $\alpha &gt; threshold$, Equation 8 is larger than $\alpha$ for the given $\gamma$. For example, if $\gamma$ = 1, we have
 $$(Equation8) - \alpha = \frac{\alpha^2(\alpha-1)^2}{\alpha^3-2\alpha^2-\alpha+1}&gt;0,where\;0&lt;\alpha&lt;2$$
