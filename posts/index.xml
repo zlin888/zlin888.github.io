@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Zhitao Lin&#39;s Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 Jun 2019 14:08:56 -0400</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jul 2019 21:53:48 -0400</lastBuildDate>
     
 	<atom:link href="http://liamlin.top/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Greedy Algorithms</title>
+      <link>http://liamlin.top/posts/greedy-algorithms/</link>
+      <pubDate>Mon, 08 Jul 2019 21:53:48 -0400</pubDate>
+      
+      <guid>http://liamlin.top/posts/greedy-algorithms/</guid>
+      <description>Part one -- Minimum Spanning Tree part two -- The Interval Partitioning Problem part three -- The Interval Partitioning Problem part four -- Huffman Coding part five -- The 0-1 Knapsack Problem part six -- The Weighted Interval Scheduling Problem part seven -- Reference  Greedy Algorithms typically used to solve optimization problems where one has to make a series of choices. The main idea is to choose in a locally optimized manner, that is being greedy, focusing on the temporary profits and to have no worry about the future.</description>
+    </item>
     
     <item>
       <title>The Stupid Way to GRE 330</title>
