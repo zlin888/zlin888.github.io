@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>About on Zhitao Lin</title>
+    <link>https://example.com/</link>
+    <description>Recent content in About on Zhitao Lin</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>https://example.com/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/about/</guid>
+      <description>About Me  I&amp;rsquo;m a Master student at McGill University&amp;rsquo;s School of Computer Science. I&amp;rsquo;m mainly working on compiler, high-performance code generation and functional language. My supervisor is Christophe Dubach.
+Publications From functional to imperative: combining destination-passing style and views: Zhitao Lin and Christophe Dubach, Published in ARRAY 2022
+To a great mind, nothing is little Here is a `code` block: ```python def is_elementary(): return True ``` ## References * Foo Bar: Head of Department, Placeholder Names, Lorem * John Doe: Associate Professor, Department of Computer Science, Ipsum -- </description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>https://example.com/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/contact/</guid>
+      <description> Email: zhitaolin at outlook.com  221B, Baker Street   London   United Kingdom --- ## Social 1. [Facebook](#) 2. [Twitter](#) 3. [Google+](#) -- </description>
+    </item>
+    
+  </channel>
+</rss>
